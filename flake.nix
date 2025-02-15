@@ -20,6 +20,7 @@
           packages = with pkgs; [
             ninja
             uv
+            texlive.combined.scheme-medium
           ];
         };
       }

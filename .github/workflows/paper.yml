@@ -1,0 +1,39 @@
+name: Paper
+
+on:
+    push:
+      branches:
+        - main
+    pull_request:
+
+jobs:
+  paper:
+    name: paper
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    env:
+      GH_TOKEN: ${{ github.token }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - uses: PalisadeResearch/ci-action@master
+        with:
+          github_access_token: ${{ github.token }}
+
+      - run: ninja paper
+      - uses: actions/upload-artifact@v4
+        with:
+          name: paper
+          path: paper/main.pdf
+
+      - name: Upload paper to release
+        if: github.ref == 'refs/heads/master'
+        run: |
+          gh release delete --cleanup-tag -y master
+          gh release create master paper/main.pdf

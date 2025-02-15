@@ -4,10 +4,18 @@ rule uv_sync
 rule python3
   command = python3 $in
 
+rule latexmk
+  command = latexmk -pdf -interaction=nonstopmode -silent -output-directory=paper $in
+  description = Building $out with latexmk
+
 build .venv: uv_sync
 
 build figures/hello.pdf: python3 src/hello.py | .venv
 
 build figures: phony figures/hello.pdf
 
-default figures
+build paper/main.pdf: latexmk paper/main.tex
+
+build paper: phony paper/main.pdf
+
+default paper
