@@ -1,0 +1,13 @@
+rule uv_sync
+  command = uv sync --all-extras --dev
+
+rule python3
+  command = python3 $in
+
+build .venv: uv_sync
+
+build figures/hello.pdf: python3 src/hello.py | .venv
+
+build figures: phony figures/hello.pdf
+
+default figures
