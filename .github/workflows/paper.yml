@@ -37,7 +37,7 @@ jobs:
           path: paper/main.pdf
 
       - name: Upload paper to release
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         run: |
-          gh release delete --cleanup-tag -y master
-          gh release create master paper/main.pdf
+          gh release delete --cleanup-tag -y main || true
+          gh release create main paper/main.pdf
