@@ -12,7 +12,7 @@ concurrency:
 
 jobs:
   paper:
-    name: paper
+    name: Build paper
     runs-on: ubuntu-latest
 
     permissions:
@@ -41,3 +41,26 @@ jobs:
         run: |
           gh release delete --cleanup-tag -y main || true
           gh release create main paper/main.pdf
+
+  check-figures:
+    name: Check figures
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - uses: PalisadeResearch/ci-action@master
+        with:
+          github_access_token: ${{ github.token }}
+
+      - run: ninja figures
+
+      - name: Check if figures are up to date
+        run: |
+          if [ -n "$(git status --porcelain figures/)" ]; then
+            echo "::error::Figures are out of date. Please rebuild figures and commit the changes."
+            git diff --name-only
+            exit 1
+          fi
