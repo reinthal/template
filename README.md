@@ -21,8 +21,9 @@ echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
 exit # the commands below need a fresh shell
 
 # Install direnv
-nix profile install nixpkgs#direnv
+nix profile install nixpkgs#direnv nixpkgs#nix-direnv
 echo 'eval "$(direnv hook bash)"' >> ~/.bashrc
+echo 'source $HOME/.nix-profile/share/nix-direnv/direnvrc' >> ~/.config/direnv/direnvrc
 
 # Install pre-commit
 nix profile install nixpkgs#pre-commit
