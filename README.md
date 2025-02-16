@@ -48,3 +48,9 @@ cd template # automatically loads environment
 ninja # builds figures and the paper
 git commit # checks format and lints
 ```
+
+### Files to know
+
+- `flake.nix` defines system dependencies like `texlive`
+- `pyproject.toml` defines Python dependencies like `matplotlib`
+- `build.ninja` defines build targets like `paper` and `figures`
