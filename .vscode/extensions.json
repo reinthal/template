@@ -5,6 +5,7 @@
         "charliermarsh.ruff",
         "mkhl.direnv",
         "editorconfig.editorconfig",
-        "timonwong.shellcheck"
+        "timonwong.shellcheck",
+        "melak47.ninja-syntax"
     ]
 }
