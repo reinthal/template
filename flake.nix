@@ -22,6 +22,8 @@
             uv
             typst
             texlive.combined.scheme-medium
+            nil
+            nixfmt-rfc-style
           ];
         };
       }
