@@ -22,7 +22,16 @@ exit # the commands below need a fresh shell
 
 # Install direnv
 nix profile install nixpkgs#direnv nixpkgs#nix-direnv
-echo 'eval "$(direnv hook bash)"' >> ~/.bashrc
+
+# Install direnv shell hook
+if ps -p $$ | grep -q zsh; then
+    echo 'eval "$(direnv hook zsh)"' >> ~/.zshrc
+elif ps -p $$ | grep -q bash; then
+    echo 'eval "$(direnv hook bash)"' >> ~/.bashrc
+fi
+
+# Setup nix-direnv
+mkdir -p ~/.config/direnv
 echo 'source $HOME/.nix-profile/share/nix-direnv/direnvrc' >> ~/.config/direnv/direnvrc
 
 # Install pre-commit
