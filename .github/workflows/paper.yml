@@ -45,11 +45,11 @@ jobs:
       - name: Upload paper to release
         if: github.ref == 'refs/heads/main'
         run: |
-          gh release delete --cleanup-tag -y main || true
+          gh release delete --cleanup-tag -y latest || true
           mkdir out
           cp paper-latex/main.pdf out/latex.pdf
           cp paper-typst/main.pdf out/typst.pdf
-          gh release create main out/*
+          gh release create latest out/*
 
   check-figures:
     name: Check figures
