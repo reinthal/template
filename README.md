@@ -9,6 +9,17 @@ A template repository implementing Palisade's coding guide. Features:
 
 ## Development
 
+### Forking
+
+```bash
+gh repo clone PalisadeResearch/template my-new-project -- -o template
+cd my-new-project
+git lfs fetch --all
+gh repo create --private -t global-team PalisadeResearch/my-new-project
+git remote add origin git@github.com:PalisadeResearch/my-new-project.git
+git push -u origin main
+```
+
 ### System setup
 
 To set up your system for the first time, run:
