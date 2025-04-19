@@ -48,7 +48,7 @@ After cloning the repository, run:
 # allow loading environment from flake.nix, pyproject.toml, and .env
 direnv allow
 # install linting and formatting hooks
-pre-commit install && pre-commit run
+pre-commit install && pre-commit run --all-files
 ```
 
 ### Daily workflow
