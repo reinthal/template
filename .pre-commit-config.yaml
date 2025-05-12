@@ -1,13 +1,4 @@
 repos:
-  - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.7.2
-    hooks:
-      - id: uv-lock
-  - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.11.8
-    hooks:
-      - id: ruff
-      - id: ruff-format
   - repo: local
     hooks:
       - id: nixfmt
@@ -15,3 +6,24 @@ repos:
         entry: nixfmt
         language: system
         types: [nix]
+      - id: uv-lock
+        name: uv-lock
+        description: "Automatically run 'uv lock' on your project dependencies"
+        entry: uv lock
+        language: system
+        files: ^(uv\.lock|pyproject\.toml|uv\.toml)$
+        pass_filenames: false
+      - id: ruff
+        name: ruff
+        description: "Run 'ruff' for extremely fast Python linting"
+        entry: ruff check --force-exclude
+        language: system
+        types_or: [python, pyi, jupyter]
+        require_serial: true
+      - id: ruff-format
+        name: ruff-format
+        description: "Run 'ruff format' for extremely fast Python formatting"
+        entry: ruff format --force-exclude
+        language: system
+        types_or: [python, pyi, jupyter]
+        require_serial: true
