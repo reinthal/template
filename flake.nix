@@ -18,6 +18,8 @@
       {
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
+            # Basics
+            git
             ninja
             # Python
             uv
