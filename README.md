@@ -15,7 +15,8 @@ A template repository implementing Palisade's coding guide. Features:
 gh repo clone PalisadeResearch/template my-new-project -- -o template
 cd my-new-project
 git lfs fetch --all
-gh repo create --private -t global-team PalisadeResearch/my-new-project
+gh repo create --private PalisadeResearch/my-new-project
+gh api -X PUT /orgs/PalisadeResearch/teams/global-team/repos/PalisadeResearch/my-new-project -f permission=push
 git remote add origin git@github.com:PalisadeResearch/my-new-project.git
 git push -u origin main
 ```
