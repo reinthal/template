@@ -20,6 +20,7 @@
           packages = with pkgs; [
             # Basics
             git
+            gh
             ninja
             # Python
             uv
