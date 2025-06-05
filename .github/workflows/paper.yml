@@ -13,7 +13,7 @@ concurrency:
 jobs:
   paper:
     name: Build paper
-    runs-on: self-hosted-runner-deployment-phg78-w68m5
+    runs-on: k8s-runner
 
     permissions:
       contents: write
@@ -53,7 +53,7 @@ jobs:
 
   check-figures:
     name: Check figures
-    runs-on: ubuntu-latest
+    runs-on: k8s-runner
 
     permissions:
       contents: read
