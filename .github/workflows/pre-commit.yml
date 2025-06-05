@@ -11,7 +11,7 @@ concurrency:
 jobs:
   pre-commit:
     name: Run pre-commit checks
-    runs-on: self-hosted-runner-deployment-phg78-w68m5
+    runs-on: k8s-runner
 
     permissions:
       contents: read
