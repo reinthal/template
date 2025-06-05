@@ -26,7 +26,7 @@ jobs:
         with:
           lfs: true
 
-      - uses: PalisadeResearch/ci-action@master
+      - uses: reinthal/ci-action@master
         with:
           github_access_token: ${{ github.token }}
 
@@ -63,7 +63,7 @@ jobs:
         with:
           lfs: true
 
-      - uses: PalisadeResearch/ci-action@master
+      - uses: reinthal/ci-action@master
         with:
           github_access_token: ${{ github.token }}
 
