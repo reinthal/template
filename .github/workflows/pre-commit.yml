@@ -11,7 +11,7 @@ concurrency:
 jobs:
   pre-commit:
     name: Run pre-commit checks
-    runs-on: ubuntu-latest
+    runs-on: self-hosted-runner-deployment-phg78-w68m5
 
     permissions:
       contents: read

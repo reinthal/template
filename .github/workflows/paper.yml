@@ -13,7 +13,7 @@ concurrency:
 jobs:
   paper:
     name: Build paper
-    runs-on: ubuntu-latest
+    runs-on: self-hosted-runner-deployment-phg78-w68m5
 
     permissions:
       contents: write
