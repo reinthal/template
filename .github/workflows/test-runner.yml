@@ -1,4 +1,4 @@
-name: Paper
+name: Test Runner
 
 on:
     push:
