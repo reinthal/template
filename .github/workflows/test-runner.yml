@@ -1,0 +1,42 @@
+name: Paper
+
+on:
+    push:
+      branches:
+        - main
+    pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test-commands:
+    name: Test Workflow commands
+    runs-on: k8s-runner
+
+    permissions:
+      contents: write
+
+    env:
+      GH_TOKEN: ${{ github.token }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Test command execution
+        if: github.ref == 'refs/heads/main'
+        run: |
+          ls -lha /cache
+          ls -lh /nix/store
+          ls -lha /home/runner/.nix-profile
+          echo "whoami"
+          whoami
+          echo "df -hla"
+          df -hla
+    
+          
+
+  
