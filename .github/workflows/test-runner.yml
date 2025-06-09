@@ -29,15 +29,12 @@ jobs:
       - name: Test command execution
         if: github.ref == 'refs/heads/main'
         run: |
-          env | sort
-          echo "cwd"
-          pwd
-          ls -lh /nix/store
-          ls -lha /home/runner/.nix-profile
-          echo "whoami"
-          whoami
-          echo "df -hla"
-          df -hla
+          env | sort | grep NIX
+          env | sort | grep PATH
+          echo PATH
+          echo $PATH
+          export PATH=$PATH:$NIX_PATH
+          nix run nixpkgs#cowsay moo
     
           
 
