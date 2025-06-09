@@ -29,10 +29,9 @@ jobs:
       - name: Test command execution
         if: github.ref == 'refs/heads/main'
         run: |
-          echo "direnv"
-          which direnv
-          echo nix
-          which nix
+          env | sort
+          echo "cwd"
+          pwd
           ls -lh /nix/store
           ls -lha /home/runner/.nix-profile
           echo "whoami"
