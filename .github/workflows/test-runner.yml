@@ -25,7 +25,10 @@ jobs:
       - uses: actions/checkout@v4
         with:
           lfs: true
-
+      - uses: reinthal/ci-action@master
+        with:
+          github_access_token: ${{ github.token }}
+          
       - name: Test command execution
         if: github.ref == 'refs/heads/main'
         run: |
