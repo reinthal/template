@@ -13,7 +13,7 @@ A template repository implementing Palisade's coding guide. Features:
 
 ```bash
 # Clone
-gh repo clone PalisadeResearch/template my-new-project -- -o template
+gh repo clone reinthal/template my-new-project -- -o template
 cd my-new-project
 git lfs fetch --all
 
@@ -21,9 +21,8 @@ git lfs fetch --all
 git rm CODEOWNERS # remove or replace with your own
 
 # Push
-gh repo create --private PalisadeResearch/my-new-project
-gh api -X PUT /orgs/PalisadeResearch/teams/global-team/repos/PalisadeResearch/my-new-project -f permission=push
-git remote add origin git@github.com:PalisadeResearch/my-new-project.git
+gh repo create --private reinthal/my-new-project
+git remote add origin https://github.com/reinthal/my-new-project.git
 git push -u origin main
 ```
 
