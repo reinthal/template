@@ -30,6 +30,15 @@ dev = [
     "jupyter>=1.1.1",
 ]
 
+[tool.commitizen]
+name = "cz_conventional_commits"
+version_provider = "pep621"
+tag_format = "v$version"
+update_changelog_on_bump = true
+changelog_file = "CHANGELOG.md"
+bump_message = "bump: version $current_version → $new_version"
+major_version_zero = true
+
 [[tool.uv.index]]
 name = "nvidia"
 url = "https://pypi.nvidia.com"
