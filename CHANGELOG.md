@@ -1,0 +1,14 @@
+## v0.2.0 (2026-05-10)
+
+### Feat
+
+- add CI/CD for version bumping and PDF release
+- add sops to template
+
+### Fix
+
+- add lock file
+
+### Refactor
+
+- combine bump and PDF release into single workflow
