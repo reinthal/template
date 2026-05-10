@@ -1,3 +1,9 @@
+## v0.2.1 (2026-05-10)
+
+### Fix
+
+- correct LaTeX root_file path in workflow
+
 ## v0.2.0 (2026-05-10)
 
 ### Feat
